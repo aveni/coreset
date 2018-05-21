@@ -34,16 +34,6 @@ def sub_k_center(data, k):
 
   return centers
 
-def sub_k_center2(k):
-  pairwise = np.load("results/mnist-vgg_16-pairwise.npy")
-  c = np.random.choice(data.shape[0], 1)[0]
-  centers = [c]
-  for i in range(k-1):
-    farthest = np.argmax(np.min(pairwise[centers], axis=0))
-    centers.append(farthest)
-    
-  return centers
-
 
 dataset = "mnist"
 model = vgg_16
